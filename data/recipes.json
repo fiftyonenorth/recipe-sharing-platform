@@ -1,0 +1,200 @@
+[
+  {
+    "id": "1",
+    "slug": "classic-margherita-pizza",
+    "title": "Classic Margherita Pizza",
+    "description": "A timeless Neapolitan-style pizza with fresh mozzarella, basil, and San Marzano tomatoes on a crisp, chewy crust.",
+    "author": "Maria Rossi",
+    "category": "dinner",
+    "prepTime": 30,
+    "cookTime": 12,
+    "servings": 4,
+    "difficulty": "medium",
+    "ingredients": [
+      "500g tipo 00 flour",
+      "325ml warm water",
+      "7g active dry yeast",
+      "10g salt",
+      "400g canned San Marzano tomatoes",
+      "250g fresh mozzarella",
+      "Fresh basil leaves",
+      "Extra virgin olive oil",
+      "Sea salt"
+    ],
+    "instructions": [
+      "Dissolve yeast in warm water and let sit for 5 minutes until foamy.",
+      "Mix flour and salt, then add yeast mixture. Knead for 10 minutes until smooth and elastic.",
+      "Cover and let rise for 2 hours until doubled in size.",
+      "Preheat oven to its highest setting with a pizza stone or steel inside.",
+      "Stretch dough into four 10-inch rounds. Top each with crushed tomatoes, torn mozzarella, and a drizzle of olive oil.",
+      "Bake for 10–12 minutes until the crust is charred and cheese is bubbling.",
+      "Finish with fresh basil and a pinch of sea salt before serving."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80",
+    "createdAt": "2025-01-15T10:00:00.000Z",
+    "updatedAt": "2025-01-15T10:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "slug": "fluffy-buttermilk-pancakes",
+    "title": "Fluffy Buttermilk Pancakes",
+    "description": "Stack-high pancakes with golden edges and a tender, cloud-like interior — perfect for lazy weekend mornings.",
+    "author": "James Chen",
+    "category": "breakfast",
+    "prepTime": 10,
+    "cookTime": 15,
+    "servings": 4,
+    "difficulty": "easy",
+    "ingredients": [
+      "2 cups all-purpose flour",
+      "2 tbsp sugar",
+      "2 tsp baking powder",
+      "1 tsp baking soda",
+      "1/2 tsp salt",
+      "2 cups buttermilk",
+      "2 large eggs",
+      "1/4 cup melted butter",
+      "Maple syrup and butter for serving"
+    ],
+    "instructions": [
+      "Whisk together flour, sugar, baking powder, baking soda, and salt in a large bowl.",
+      "In another bowl, whisk buttermilk, eggs, and melted butter until combined.",
+      "Pour wet ingredients into dry and stir until just combined — a few lumps are fine.",
+      "Heat a griddle or skillet over medium heat and lightly butter.",
+      "Pour 1/4 cup batter per pancake. Cook until bubbles form on top, then flip.",
+      "Cook another 1–2 minutes until golden. Serve warm with maple syrup."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=80",
+    "createdAt": "2025-02-01T08:30:00.000Z",
+    "updatedAt": "2025-02-01T08:30:00.000Z"
+  },
+  {
+    "id": "3",
+    "slug": "dark-chocolate-lava-cake",
+    "title": "Dark Chocolate Lava Cake",
+    "description": "Individual molten chocolate cakes with a gooey center — an impressive dessert that comes together in under 30 minutes.",
+    "author": "Sophie Laurent",
+    "category": "dessert",
+    "prepTime": 15,
+    "cookTime": 12,
+    "servings": 2,
+    "difficulty": "medium",
+    "ingredients": [
+      "100g dark chocolate (70%)",
+      "100g unsalted butter",
+      "2 large eggs",
+      "2 egg yolks",
+      "50g caster sugar",
+      "30g all-purpose flour",
+      "Pinch of salt",
+      "Cocoa powder for dusting",
+      "Vanilla ice cream to serve"
+    ],
+    "instructions": [
+      "Preheat oven to 220°C (425°F). Butter two ramekins and dust with cocoa powder.",
+      "Melt chocolate and butter together in a double boiler, then let cool slightly.",
+      "Whisk eggs, yolks, and sugar until pale and thick. Fold in chocolate mixture, then flour and salt.",
+      "Divide batter between ramekins. Bake for exactly 12 minutes — centers should still jiggle.",
+      "Rest for 1 minute, then invert onto plates. Serve immediately with vanilla ice cream."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&q=80",
+    "createdAt": "2025-02-10T18:00:00.000Z",
+    "updatedAt": "2025-02-10T18:00:00.000Z"
+  },
+  {
+    "id": "4",
+    "slug": "thai-green-curry",
+    "title": "Thai Green Curry",
+    "description": "A fragrant, creamy curry loaded with vegetables and tender chicken in a homemade green paste.",
+    "author": "Niran Patel",
+    "category": "dinner",
+    "prepTime": 20,
+    "cookTime": 25,
+    "servings": 4,
+    "difficulty": "medium",
+    "ingredients": [
+      "3 tbsp green curry paste",
+      "400ml coconut milk",
+      "500g chicken thigh, sliced",
+      "1 red bell pepper, sliced",
+      "100g bamboo shoots",
+      "2 tbsp fish sauce",
+      "1 tbsp palm sugar",
+      "Thai basil and jasmine rice to serve",
+      "Lime wedges"
+    ],
+    "instructions": [
+      "Fry curry paste in a wok over medium-high heat for 2 minutes until fragrant.",
+      "Add thick coconut cream from the top of the can and stir until oil separates.",
+      "Add chicken and cook until no longer pink on the outside.",
+      "Pour in remaining coconut milk, fish sauce, and palm sugar. Simmer for 10 minutes.",
+      "Add bell pepper and bamboo shoots. Cook 5 more minutes until vegetables are tender.",
+      "Stir in Thai basil. Serve over jasmine rice with lime wedges."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1455619452474-d2be8b1e70ee?w=800&q=80",
+    "createdAt": "2025-03-05T12:00:00.000Z",
+    "updatedAt": "2025-03-05T12:00:00.000Z"
+  },
+  {
+    "id": "5",
+    "slug": "fresh-mango-smoothie",
+    "title": "Fresh Mango Smoothie",
+    "description": "A tropical, velvety smoothie with ripe mango, yogurt, and a hint of lime — refreshing any time of day.",
+    "author": "Elena Vasquez",
+    "category": "drink",
+    "prepTime": 5,
+    "cookTime": 0,
+    "servings": 2,
+    "difficulty": "easy",
+    "ingredients": [
+      "2 ripe mangoes, peeled and cubed",
+      "1 cup Greek yogurt",
+      "1/2 cup orange juice",
+      "1 tbsp honey",
+      "Juice of half a lime",
+      "1 cup ice cubes"
+    ],
+    "instructions": [
+      "Add all ingredients to a blender.",
+      "Blend on high until completely smooth, about 60 seconds.",
+      "Taste and adjust sweetness with more honey if needed.",
+      "Pour into glasses and serve immediately."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1505252585461-04db1eb84657?w=800&q=80",
+    "createdAt": "2025-03-20T07:00:00.000Z",
+    "updatedAt": "2025-03-20T07:00:00.000Z"
+  },
+  {
+    "id": "6",
+    "slug": "mediterranean-quinoa-bowl",
+    "title": "Mediterranean Quinoa Bowl",
+    "description": "A vibrant, protein-packed bowl with fluffy quinoa, roasted vegetables, feta, and a lemon-herb dressing.",
+    "author": "Alex Thompson",
+    "category": "lunch",
+    "prepTime": 15,
+    "cookTime": 25,
+    "servings": 2,
+    "difficulty": "easy",
+    "ingredients": [
+      "1 cup quinoa",
+      "1 zucchini, diced",
+      "1 cup cherry tomatoes",
+      "1/2 red onion, sliced",
+      "100g feta cheese",
+      "1/4 cup kalamata olives",
+      "2 tbsp olive oil",
+      "Juice of 1 lemon",
+      "Fresh parsley and oregano"
+    ],
+    "instructions": [
+      "Cook quinoa according to package directions and let cool slightly.",
+      "Toss zucchini, tomatoes, and onion with olive oil. Roast at 200°C for 20 minutes.",
+      "Whisk lemon juice, remaining olive oil, parsley, and oregano for the dressing.",
+      "Divide quinoa between bowls. Top with roasted vegetables, feta, and olives.",
+      "Drizzle with dressing and serve warm or at room temperature."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+    "createdAt": "2025-04-01T11:30:00.000Z",
+    "updatedAt": "2025-04-01T11:30:00.000Z"
+  }
+]
