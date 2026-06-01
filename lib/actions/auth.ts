@@ -34,7 +34,7 @@ function authErrorMessage(message: string): string {
 }
 
 function getPasswordResetRedirectUrl(): string {
-  return `${getSiteUrl()}/auth/confirm?next=/reset-password`;
+  return `${getSiteUrl()}/auth/recovery`;
 }
 
 export async function signInAction(
