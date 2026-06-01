@@ -3,7 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
-import { getSiteUrl } from "@/lib/site-url";
+import {
+  getPasswordResetRedirectUrl,
+  getSiteUrl,
+} from "@/lib/site-url";
 import { createClient } from "@/lib/supabase/server";
 
 export interface AuthFormState {
@@ -31,10 +34,6 @@ function authErrorMessage(message: string): string {
   }
 
   return message;
-}
-
-function getPasswordResetRedirectUrl(): string {
-  return `${getSiteUrl()}/auth/recovery`;
 }
 
 export async function signInAction(
