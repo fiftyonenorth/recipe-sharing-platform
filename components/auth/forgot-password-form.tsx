@@ -33,22 +33,26 @@ export function ForgotPasswordForm() {
       return;
     }
 
-    const supabase = createClient();
-    const { error: resetError } = await supabase.auth.resetPasswordForEmail(
-      email,
-      { redirectTo: getPasswordResetRedirectUrlForEmailClient() }
-    );
+    try {
+      const supabase = createClient();
+      const { error: resetError } = await supabase.auth.resetPasswordForEmail(
+        email,
+        { redirectTo: getPasswordResetRedirectUrlForEmailClient() }
+      );
 
-    setIsPending(false);
+      if (resetError) {
+        setError(authErrorMessage(resetError.message));
+        return;
+      }
 
-    if (resetError) {
-      setError(authErrorMessage(resetError.message));
-      return;
+      setMessage(
+        "If an account exists for that email, we've sent a link to reset your password. Open the link in this same browser if you can."
+      );
+    } catch {
+      setError("Could not send reset email. Please try again.");
+    } finally {
+      setIsPending(false);
     }
-
-    setMessage(
-      "If an account exists for that email, we've sent a link to reset your password. Open the link in this same browser if you can."
-    );
   }
 
   return (

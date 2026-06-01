@@ -37,12 +37,18 @@ export function ResetPasswordSession({
             refresh_token: refreshToken,
           });
 
-          if (!error) {
-            window.history.replaceState(null, "", window.location.pathname);
-            router.refresh();
-            if (!cancelled) setStatus("ready");
-            return;
+          if (!cancelled) {
+            if (!error) {
+              window.history.replaceState(null, "", window.location.pathname);
+              router.refresh();
+              setStatus("ready");
+            } else {
+              // Token was present but invalid/expired — don't fall through to
+              // getUser(), which could show the form using a stale prior session.
+              setStatus("missing");
+            }
           }
+          return;
         }
       }
 
