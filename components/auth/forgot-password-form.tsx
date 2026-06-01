@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { AuthAlert, AuthField } from "@/components/auth/auth-field";
 import { createClient } from "@/lib/supabase/client";
-import { getPasswordResetRedirectUrl } from "@/lib/site-url";
+import { getPasswordResetRedirectUrlForEmailClient } from "@/lib/password-reset-url";
 
 function authErrorMessage(message: string): string {
   const lower = message.toLowerCase();
@@ -36,7 +36,7 @@ export function ForgotPasswordForm() {
     const supabase = createClient();
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(
       email,
-      { redirectTo: getPasswordResetRedirectUrl() }
+      { redirectTo: getPasswordResetRedirectUrlForEmailClient() }
     );
 
     setIsPending(false);

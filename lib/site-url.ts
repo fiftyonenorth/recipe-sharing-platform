@@ -30,8 +30,9 @@ export function getSiteUrl(): string {
 export function getAuthRedirectUrls(): string[] {
   const base = getSiteUrl();
   return [
-    `${base}/auth/confirm`,
     `${base}/auth/recovery`,
+    `${base}/auth/confirm`,
+    `${base}/auth/confirm?next=/reset-password`,
     `${base}/reset-password`,
   ];
 }
