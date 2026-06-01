@@ -26,7 +26,15 @@ function authErrorMessage(message: string): string {
     return "Password must be at least 6 characters.";
   }
 
+  if (lower.includes("rate limit") || lower.includes("too many requests")) {
+    return "Too many attempts. Please wait a moment and try again.";
+  }
+
   return message;
+}
+
+function getPasswordResetRedirectUrl(): string {
+  return `${getSiteUrl()}/auth/confirm?next=/reset-password`;
 }
 
 export async function signInAction(
@@ -120,4 +128,90 @@ export async function signOutAction(): Promise<void> {
   await supabase.auth.signOut();
   revalidatePath("/", "layout");
   redirect("/");
+}
+
+export async function requestPasswordResetAction(
+  _prev: AuthFormState,
+  formData: FormData
+): Promise<AuthFormState> {
+  const email = String(formData.get("email") ?? "").trim();
+
+  if (!email) {
+    return { error: "Email is required." };
+  }
+
+  try {
+    const supabase = await createClient();
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: getPasswordResetRedirectUrl(),
+    });
+
+    if (error) {
+      return { error: authErrorMessage(error.message) };
+    }
+
+    return {
+      message:
+        "If an account exists for that email, we've sent a link to reset your password.",
+    };
+  } catch (error) {
+    return {
+      error:
+        error instanceof Error
+          ? error.message
+          : "Could not send reset email. Try again.",
+    };
+  }
+}
+
+export async function resetPasswordAction(
+  _prev: AuthFormState,
+  formData: FormData
+): Promise<AuthFormState> {
+  const password = String(formData.get("password") ?? "");
+  const confirmPassword = String(formData.get("confirmPassword") ?? "");
+
+  if (!password || !confirmPassword) {
+    return { error: "Both password fields are required." };
+  }
+
+  if (password.length < 6) {
+    return { error: "Password must be at least 6 characters." };
+  }
+
+  if (password !== confirmPassword) {
+    return { error: "Passwords do not match." };
+  }
+
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      return {
+        error:
+          "Your reset link has expired or is invalid. Request a new password reset email.",
+      };
+    }
+
+    const { error } = await supabase.auth.updateUser({ password });
+
+    if (error) {
+      return { error: authErrorMessage(error.message) };
+    }
+
+    await supabase.auth.signOut();
+    revalidatePath("/", "layout");
+    redirect("/login?reset=success");
+  } catch (error) {
+    if (isRedirectError(error)) throw error;
+    return {
+      error:
+        error instanceof Error
+          ? error.message
+          : "Could not update password. Try again.",
+    };
+  }
 }

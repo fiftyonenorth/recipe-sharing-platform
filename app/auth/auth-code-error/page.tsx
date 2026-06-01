@@ -19,18 +19,24 @@ export default async function AuthCodeErrorPage({
       <Header />
       <main className="mx-auto flex max-w-md flex-1 flex-col justify-center px-4 py-16 text-center sm:px-6">
         <h1 className="text-2xl font-semibold text-stone-900 dark:text-stone-50">
-          Could not verify your email
+          Link could not be verified
         </h1>
         <p className="mt-3 text-sm text-stone-600 dark:text-stone-400">
-          The confirmation link may have expired or already been used.
+          The link may have expired or already been used.
           {error ? ` (${error})` : null}
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <Link
-            href="/register"
+            href="/forgot-password"
             className="rounded-full bg-amber-500 px-6 py-2.5 text-sm font-semibold text-white hover:bg-amber-600"
           >
-            Try again
+            Reset password
+          </Link>
+          <Link
+            href="/register"
+            className="rounded-full border border-stone-300 px-6 py-2.5 text-sm font-semibold text-stone-800 hover:bg-stone-50 dark:border-stone-700 dark:text-stone-100 dark:hover:bg-stone-800"
+          >
+            Create account
           </Link>
           <Link
             href="/login"
