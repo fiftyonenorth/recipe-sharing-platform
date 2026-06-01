@@ -13,6 +13,9 @@ export default async function AuthCodeErrorPage({
   searchParams,
 }: AuthCodeErrorPageProps) {
   const { error } = await searchParams;
+  const isPkceMismatch =
+    error?.toLowerCase().includes("code challenge") ||
+    error?.toLowerCase().includes("code verifier");
 
   return (
     <div className="flex min-h-full flex-col bg-stone-50 font-sans text-stone-900 dark:bg-stone-950 dark:text-stone-50">
@@ -22,8 +25,20 @@ export default async function AuthCodeErrorPage({
           Link could not be verified
         </h1>
         <p className="mt-3 text-sm text-stone-600 dark:text-stone-400">
-          The link may have expired or already been used.
-          {error ? ` (${error})` : null}
+          {isPkceMismatch ? (
+            <>
+              Request a new reset email from this browser, then open the link
+              here (not in a different app or device). If it still fails, ask
+              your admin to update the Supabase &ldquo;Reset password&rdquo;
+              email template to use the token link (see{" "}
+              <code className="text-xs">.env.local.example</code>).
+            </>
+          ) : (
+            <>
+              The link may have expired or already been used.
+              {error ? ` (${error})` : null}
+            </>
+          )}
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <Link

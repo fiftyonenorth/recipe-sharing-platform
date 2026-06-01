@@ -3,10 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
-import {
-  getPasswordResetRedirectUrl,
-  getSiteUrl,
-} from "@/lib/site-url";
+import { getSiteUrl } from "@/lib/site-url";
 import { createClient } from "@/lib/supabase/server";
 
 export interface AuthFormState {
@@ -127,40 +124,6 @@ export async function signOutAction(): Promise<void> {
   await supabase.auth.signOut();
   revalidatePath("/", "layout");
   redirect("/");
-}
-
-export async function requestPasswordResetAction(
-  _prev: AuthFormState,
-  formData: FormData
-): Promise<AuthFormState> {
-  const email = String(formData.get("email") ?? "").trim();
-
-  if (!email) {
-    return { error: "Email is required." };
-  }
-
-  try {
-    const supabase = await createClient();
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: getPasswordResetRedirectUrl(),
-    });
-
-    if (error) {
-      return { error: authErrorMessage(error.message) };
-    }
-
-    return {
-      message:
-        "If an account exists for that email, we've sent a link to reset your password.",
-    };
-  } catch (error) {
-    return {
-      error:
-        error instanceof Error
-          ? error.message
-          : "Could not send reset email. Try again.",
-    };
-  }
 }
 
 export async function resetPasswordAction(
